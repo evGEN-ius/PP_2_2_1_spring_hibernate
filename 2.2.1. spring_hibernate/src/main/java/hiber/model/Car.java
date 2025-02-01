@@ -11,7 +11,7 @@ public class Car {
     private Long id;
 
     @Column(name = "name")
-    private String name;
+    private String model;
 
     @Column(name = "series")
     private String series;
@@ -23,8 +23,8 @@ public class Car {
 
     }
 
-    public Car(String name, String series) {
-        this.name = name;
+    public Car(String model, String series) {
+        this.model = model;
         this.series = series;
     }
 

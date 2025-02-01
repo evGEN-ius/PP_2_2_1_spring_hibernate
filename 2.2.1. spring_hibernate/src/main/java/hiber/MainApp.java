@@ -22,6 +22,7 @@ public class MainApp {
       carService.add(new Car("Test4", "Test4"));
       List<Car> cars = carService.listCars();
 
+
       UserService userService = context.getBean(UserService.class);
       userService.add(new User("User1", "Lastname1", "user1@mail.ru",cars.get(0)));
       userService.add(new User("User2", "Lastname2", "user2@mail.ru",cars.get(1)));
@@ -29,6 +30,10 @@ public class MainApp {
       userService.add(new User("User4", "Lastname4", "user4@mail.ru",cars.get(3)));
 
       List<User> users = userService.listUsers();
+
+      // метод, который с помощью hql-запроса будет доставать юзера, владеющего машиной по ее модели и серии.
+      System.out.println("\n \u001B[32m" + userService.getUserByCar("Test2", "Test2").getFirstName()  + "\n \u001B[0m");
+
       for (User user : users) {
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
@@ -40,4 +45,9 @@ public class MainApp {
 
       context.close();
    }
+
+
+
+
+
 }
